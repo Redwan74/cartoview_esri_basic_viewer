@@ -260,8 +260,8 @@ define({
         },
         "measure": {
           "enabled": true
-        },
         "search": {
+        },
           "enabled": false,
           "disablePlaceFinder": true,
           "hintText": "Place or Address",

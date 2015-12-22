@@ -135,7 +135,7 @@ Evented, declare, win, fx, html, lang, has, dom, domClass, domStyle, domAttr, do
 
             domConstruct.create("img", {
                 className: "tool",
-                src: "images/icons_" + this.config.icons + "/" + name + ".png"
+                src: package_path +"images/icons_" + this.config.icons + "/" + name + ".png"
             }, pTool);
             on(pTool, "click", lang.hitch(this, this._toolClick, name));
             this.tools.push(name);
@@ -168,7 +168,7 @@ Evented, declare, win, fx, html, lang, has, dom, domClass, domStyle, domAttr, do
 
             domConstruct.create("div", {
                 className: "pageHeaderImg",
-                innerHTML: "<img class='pageIcon' src ='images/icons_" + this.config.icons + "/" + name + ".png'/>"
+                innerHTML: "<img class='pageIcon' src ='" + package_path +"images/icons_" + this.config.icons + "/" + name + ".png'/>"
             }, pageHeader);
 
 
