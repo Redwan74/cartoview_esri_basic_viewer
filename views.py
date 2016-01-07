@@ -1,18 +1,16 @@
+import json
+import os
 import re
-from urlparse import urljoin
 from string import rstrip
+from urlparse import urljoin
 
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
-import json
-import os
 
 from cartoview.app_manager.models import *
 from forms import NewForm
-
-from .models import *
-
 from geonode import settings
+from .models import *
 
 dirname, filename = os.path.split(os.path.abspath(__file__))
 APP_NAME = 'cartoview_basic_viewer'
@@ -22,12 +20,12 @@ NEW_EDIT_TPL = "%s/new.html" % APP_NAME
 HELP_TPL = "%s/help.htm" % APP_NAME
 CONFIG_TPL = "%s/config.js" % APP_NAME
 
-
 # Regular expression for comments
 comment_re = re.compile(
-    '(^)?[^\S\n]*/(?:\*(.*?)\*/[^\S\n]*|/[^\n]*)($)?',
-    re.DOTALL | re.MULTILINE
+        '(^)?[^\S\n]*/(?:\*(.*?)\*/[^\S\n]*|/[^\n]*)($)?',
+        re.DOTALL | re.MULTILINE
 )
+
 
 def remove_json_comments(json_string):
     """ Parse a JSON file
@@ -40,7 +38,7 @@ def remove_json_comments(json_string):
             */
     """
 
-    content = json_string#''.join(json_string)
+    content = json_string  # ''.join(json_string)
 
     ## Looking for comments
     match = comment_re.search(content)
@@ -71,14 +69,13 @@ def save(request, map_form):
         basicviewer_obj.app = App.objects.get(name=APP_NAME)
         basicviewer_obj.owner = request.user
         basicviewer_obj.save()
-
+        # redirect to app instance details after saving instance.
         return HttpResponseRedirect(reverse('appinstance_detail', kwargs={'appinstanceid': basicviewer_obj.pk}))
     else:
         context = {'map_form': map_form}
         return render(request, NEW_EDIT_TPL, context)
 
 
-#
 #
 def new(request):
     if request.method == 'POST':

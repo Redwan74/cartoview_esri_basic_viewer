@@ -17,4 +17,4 @@ def install():
 
 
 def uninstall():
-    ContentType.objects.filter(app_label="cartoview_basic_viewer").delete();
+    ContentType.objects.filter(app_label="cartoview_basic_viewer").delete()

@@ -1,3 +1,6 @@
+# This configuration copied and removed from defaults.js(it is the configuration file in most esri templates.).
+''' webmapid, title , description and sharinghosturl are removed from this configuration and to be appended dynamically
+ with proper and friendly GUI.'''
 
 config_template = '''{
     //Default configuration settings for the application. This is where you'll define things like a bing maps key,
