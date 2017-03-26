@@ -1,11 +1,10 @@
-from django.contrib.contenttypes.models import ContentType
 
+# This info object used by cartoview app manager to show app details in the app list
 info = {
-    "title": "ESRI Basic Viewer",
-    "description": ''' Basic Viewer is a configurable application template used to display a web map with a specified
-                        set of commonly used tools and options.''',
+    "title": "ArcGIS Basic Viewer",
+    "description": "Viewer is a configurable application template that enables you to display an ArcGIS web map using a variety of tools.",
     "author": 'Cartologic',
-    "tags": ['Maps'],
+    "tags": ['App Template'],
     "licence": 'BSD',
     "author_website": "http://www.cartologic.com",
     "single_instance": False
@@ -13,8 +12,9 @@ info = {
 
 
 def install():
+    # add any extra app installation logic
     pass
 
 
 def uninstall():
-    ContentType.objects.filter(app_label="cartoview_basic_viewer").delete()
+    pass
