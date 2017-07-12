@@ -1,7 +1,7 @@
 {
   "displayType": "tabs",
   "configurationSettings": [{
-    "category": "Map",
+    "category": "Select Map",
     "fields": [{
       "type": "webmap"
     }, {
